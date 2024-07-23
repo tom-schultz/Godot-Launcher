@@ -5,7 +5,7 @@ const INSTALL_DIR_KEY : String = "install_dir"
 
 var _install_dir : String = "installs"
 var _project_dir : String = "projects"
-var _project_scene : PackedScene = preload("res://project.tscn")
+var _project_scene : PackedScene = preload("res://Scenes/project.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
