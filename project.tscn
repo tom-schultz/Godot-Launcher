@@ -1,11 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://nvqxuwunitvo"]
+[gd_scene load_steps=9 format=3 uid="uid://b3orlpwd250y6"]
 
 [ext_resource type="Script" path="res://project.gd" id="1_0lk13"]
+[ext_resource type="Texture2D" uid="uid://l1xdxa1li4m8" path="res://Textures/import.png" id="2_vmq4m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1611"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 1
 border_color = Color(0.352941, 0.352941, 0.352941, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cqkua"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xthhy"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbcuw"]
+bg_color = Color(0.427451, 0.427451, 0.427451, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2lmdt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2vugd"]
 
 [node name="PanelContainer" type="PanelContainer"]
 offset_left = 151.0
@@ -31,11 +51,30 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Dog"
 
-[node name="VersionLabel" type="Label" parent="MarginContainer/Hbox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Hbox"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="VersionLabel" type="Label" parent="MarginContainer/Hbox/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Dog"
+
+[node name="VersionDownloadButton" type="Button" parent="MarginContainer/Hbox/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/outline_size = 1
+theme_override_constants/icon_max_width = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cqkua")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xthhy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fbcuw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2lmdt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2vugd")
+icon = ExtResource("2_vmq4m")
+icon_alignment = 1
 
 [node name="LaunchButton" type="Button" parent="MarginContainer/Hbox"]
 unique_name_in_owner = true
