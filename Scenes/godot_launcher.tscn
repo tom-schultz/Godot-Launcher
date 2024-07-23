@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cet2t7cohoa86"]
 
-[ext_resource type="Script" path="res://godot_launcher.gd" id="1_noahr"]
+[ext_resource type="Script" path="res://Scripts/godot_launcher.gd" id="1_7rs72"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lra51"]
 
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_noahr")
+script = ExtResource("1_7rs72")
 
 [node name="ProjectDirectoryDialog" type="FileDialog" parent="."]
 unique_name_in_owner = true

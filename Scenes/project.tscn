@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b3orlpwd250y6"]
 
-[ext_resource type="Script" path="res://project.gd" id="1_0lk13"]
-[ext_resource type="Texture2D" uid="uid://l1xdxa1li4m8" path="res://Textures/import.png" id="2_vmq4m"]
+[ext_resource type="Script" path="res://Scripts/project.gd" id="1_0leeo"]
+[ext_resource type="Texture2D" uid="uid://l1xdxa1li4m8" path="res://Textures/import.png" id="2_aw3rp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1611"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -32,7 +32,7 @@ offset_left = 151.0
 offset_right = 151.0
 offset_bottom = 31.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_a1611")
-script = ExtResource("1_0lk13")
+script = ExtResource("1_0leeo")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -73,7 +73,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_xthhy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fbcuw")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_2lmdt")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2vugd")
-icon = ExtResource("2_vmq4m")
+icon = ExtResource("2_aw3rp")
 icon_alignment = 1
 
 [node name="LaunchButton" type="Button" parent="MarginContainer/Hbox"]
