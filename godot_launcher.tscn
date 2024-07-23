@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cet2t7cohoa86"]
+[gd_scene load_steps=3 format=3 uid="uid://cet2t7cohoa86"]
 
 [ext_resource type="Script" path="res://godot_launcher.gd" id="1_noahr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lra51"]
 
 [node name="GodotLauncher" type="Control"]
 layout_mode = 3
@@ -90,3 +92,14 @@ size_flags_horizontal = 3
 text = "./installs"
 clip_text = true
 text_overrun_behavior = 3
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_lra51")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "The installs directory should contain a directory for each install.
+Each install directory should have the same name as the version string, such as \"Godot_v4.1-stable_win64.exe\".
+Each install directory should contain the Godot executables and any other relevant directories such as GodotSharp."

@@ -58,7 +58,8 @@ func _build_project_controls():
 		
 		var new_project = _project_scene.instantiate()
 		%ProjectContainer.add_child(new_project)
-		new_project.setup(project, godot_version, "%s/%s" % [_install_dir, godot_version], project_path)
+		var exe_filename = godot_version.trim_suffix(".exe") + ".exe"
+		new_project.setup(project, godot_version, "%s/%s/%s" % [_install_dir, godot_version, exe_filename], project_path)
 
 func _get_maj_minor(project_file_path):
 	var config_file = ConfigFile.new()
