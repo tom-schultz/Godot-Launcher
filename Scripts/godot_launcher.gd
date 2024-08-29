@@ -4,6 +4,7 @@ const PROJECT_DIR_KEY : String = "project_dir"
 const INSTALL_DIR_KEY : String = "install_dir"
 
 var _install_dir : String = "installs"
+var _install_scene : PackedScene = preload("res://Scenes/install.tscn")
 var _project_dir : String = "projects"
 var _project_scene : PackedScene = preload("res://Scenes/project.tscn")
 
@@ -12,6 +13,7 @@ func _ready():
 	_initialize_paths()
 	_initialize_controls()
 	_build_project_controls()
+	_build_install_controls()
 
 func _build_lock(lock_path : String, project_dir: String, maj_minor : String):
 	var csharp = false
@@ -40,6 +42,20 @@ func _build_lock(lock_path : String, project_dir: String, maj_minor : String):
 
 	return null
 
+func _build_install_controls():
+	for install in DirAccess.get_directories_at(_install_dir):
+		if not install.begins_with("Godot"):
+			continue
+			
+		var install_path : String = "%s/%s/%s" % [_install_dir, install, install]
+		
+		if not install_path.ends_with(".exe"):
+			install_path += ".exe"
+		
+		var new_install = _install_scene.instantiate()
+		%InstallsContainer.add_child(new_install)
+		new_install.setup(install, install_path)
+
 func _build_project_controls():
 	for project in DirAccess.get_directories_at(_project_dir):
 		var project_path : String = "%s/%s" % [_project_dir, project]
@@ -57,7 +73,7 @@ func _build_project_controls():
 			godot_version = _build_lock(lock_path, project_path, maj_minor)
 		
 		var new_project = _project_scene.instantiate()
-		%ProjectContainer.add_child(new_project)
+		%ProjectsContainer.add_child(new_project)
 		var exe_filename = godot_version.trim_suffix(".exe") + ".exe"
 		new_project.setup(project, godot_version, "%s/%s/%s" % [_install_dir, godot_version, exe_filename], project_path)
 

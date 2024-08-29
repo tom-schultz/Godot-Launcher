@@ -1,6 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://cet2t7cohoa86"]
+[gd_scene load_steps=11 format=3 uid="uid://cet2t7cohoa86"]
 
 [ext_resource type="Script" path="res://Scripts/godot_launcher.gd" id="1_7rs72"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1vjt"]
+bg_color = Color(0.128906, 0.148438, 0.179688, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ab5r"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.210938, 0.238281, 0.289063, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ag88q"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.168627, 0.2, 0.239216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aba6q"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.144531, 0.167969, 0.203125, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5sude"]
+bg_color = Color(0.210938, 0.238281, 0.289063, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txiv4"]
+bg_color = Color(0.144531, 0.167969, 0.203125, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gv3b"]
+bg_color = Color(0.113281, 0.132813, 0.160156, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51rf7"]
+bg_color = Color(0.113281, 0.132813, 0.160156, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lra51"]
 
@@ -38,6 +76,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q1vjt")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -49,15 +88,78 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/side_margin = 0
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_1ab5r")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_ag88q")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_aba6q")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5sude")
+theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_txiv4")
 
-[node name="ProjectContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="Projects" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/Projects"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1gv3b")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/Projects/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ProjectsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/Projects/ScrollContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Installs" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/Installs"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_51rf7")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/Installs/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="InstallsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/Installs/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_lra51")
 
 [node name="ConfigGridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -93,7 +195,7 @@ text = "./installs"
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_lra51")

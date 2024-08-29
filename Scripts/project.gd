@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Button
 
 const DOWNLOAD_FORMAT_STRING : String = "https://github.com/godotengine/godot/releases/download/%s/%s.zip"
 
@@ -9,16 +9,17 @@ var _godot_version : String
 func setup(project_name : String, godot_version : String, install_path : String, project_path : String):
 	_godot_version = godot_version
 	var invalid_version = godot_version == null or not FileAccess.file_exists(install_path)
+	text = project_name
 	%ProjectLabel.text = project_name
 	%VersionLabel.add_theme_color_override("font_color", Color.LIGHT_CORAL if invalid_version else Color.WHITE)
 	%VersionLabel.text = godot_version
-	%LaunchButton.disabled = invalid_version
+	disabled = invalid_version
 	%VersionDownloadButton.visible = invalid_version
 	_install_path = install_path
 	_project_path = project_path
 
 func _ready():
-	%LaunchButton.pressed.connect(_launch_project)
+	pressed.connect(_launch_project)
 	%VersionDownloadButton.pressed.connect(_on_download_pressed)
 
 func _launch_project():

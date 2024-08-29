@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtrx8o4w2ibd1"]
+
+[ext_resource type="Script" path="res://Scripts/install.gd" id="1_1q75u"]
+[ext_resource type="Theme" uid="uid://fswpiwpw0kr4" path="res://Theme/launch_button.theme" id="1_rabv4"]
+
+[node name="LaunchButton" type="Button"]
+unique_name_in_owner = true
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 69.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("1_rabv4")
+text = "Launch"
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("1_1q75u")
