@@ -23,14 +23,14 @@ func _build_lock(lock_path : String, project_dir: String, maj_minor : String):
 			csharp = true
 			break
 	
-	var installs = DirAccess.get_files_at(_install_dir)
+	var installs = DirAccess.get_directories_at(_install_dir)
 	# We assume that engine versions are named such that they sort by version number
 	installs.sort()
 	# We want the latest version first and assume that this will get it for us
 	installs.reverse()
 
 	for install in installs:
-		if not install.starts_with("Godot") or not install.ends_with(".exe"):
+		if not install.begins_with("Godot_v"):
 			continue
 
 		if install.contains(maj_minor) and (not csharp or install.contains("mono")):
