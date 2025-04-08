@@ -19,3 +19,5 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1136
 window/size/viewport_height=640
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"

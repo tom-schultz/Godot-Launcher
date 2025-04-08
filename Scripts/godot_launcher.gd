@@ -14,6 +14,12 @@ func _ready():
 	_initialize_controls()
 	_build_project_controls()
 	_build_install_controls()
+	
+	var window = get_window()
+	var size = DisplayServer.screen_get_size()
+	window.size = 0.75 * size
+	window.position = size * 0.125
+	
 
 func _build_lock(lock_path : String, project_dir: String, maj_minor : String):
 	var csharp = false
