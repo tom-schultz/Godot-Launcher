@@ -15,10 +15,10 @@ func _ready():
 	_build_project_controls()
 	_build_install_controls()
 	
-	var window = get_window()
-	var size = DisplayServer.screen_get_size()
-	window.size = 0.75 * size
-	window.position = size * 0.125
+#	var window = get_window()
+#	var size = DisplayServer.screen_get_size()
+#	window.size = 0.75 * size
+#	window.position = size * 0.125
 	
 
 func _build_lock(lock_path : String, project_dir: String, maj_minor : String):
@@ -70,6 +70,9 @@ func _build_project_controls():
 		var godot_version = null
 		var maj_minor = _get_maj_minor(project_file_path)
 		
+		if maj_minor == null:
+			continue
+		
 		if not FileAccess.file_exists(project_file_path):
 			continue
 
@@ -93,6 +96,9 @@ func _get_maj_minor(project_file_path):
 	var features = config_file.get_value("application", "config/features")
 	var maj_minor_ver = null
 
+	if features == null:
+		return null
+	
 	# Brittle, we'll fix this when it breaks
 	# Ideally I submit a PR to Godot creating a less brittle configuration
 	# than an unrelated array of "features"
